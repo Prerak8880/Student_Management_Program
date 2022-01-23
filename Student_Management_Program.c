@@ -1,10 +1,11 @@
 /*
 
-SRM STUDENT MANAGEMENT PROGRAM
-Made By            : "PRERAK"
+STUDENT MANAGEMENT PROGRAM
+Name               : "PRERAK"
 Reg. No.           : "RA2111043010087"
 Branch             : "ECE-CM"
 Section            : "G"
+College            : "SRM Institue, Kattankulanthur"
 
 */
 
@@ -21,6 +22,8 @@ void search_record();
 void display_record();
 void menu();
 
+
+//Student Structure
 struct student
 {
     char name[20];
@@ -41,10 +44,11 @@ void main()
 {
 
     int i,j,a,main_exit;
-    system("color 1C");
+    system("color 1C");//background or text color on console screen.
+    //Password Section
     char pass[10],password[10]="prerak";
     printf("\n\n\t\tEnter Password To Login:");
-    fflush(stdin);
+    fflush(stdin);//Flushing the buffer memory. 
     gets(pass);
      if (strcmpi(pass,password)==0)
         {
@@ -71,7 +75,7 @@ void main()
                     goto ask;
                     }
         }
-
+//Loading Section.
     printf("\tLoading Please wait");
     for(i=0; i<6; i++){
         for(j=0; j<100000000; j++){
@@ -83,10 +87,12 @@ void main()
 }
 
 
+//Main Menu
+
 void menu()
 {
     int ch;
-    system("cls");
+    system("cls");//clearing the screen.
     while(ch!=6)
     {
     printf("\n\n\t\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\xb2\n");
@@ -133,7 +139,7 @@ void menu()
 
 
 
-
+//inserting a record
 void insert_record()
 {
 
@@ -174,6 +180,7 @@ void insert_record()
 }
 
 
+// displaying the content present in the file
 
 void display_record()
 {
@@ -198,7 +205,7 @@ printf("\n%d\t\t%s\t\t%s   \t  %d\t  %.2f\n\n\n",s.roll,s.name,s.sec,s.marks,s.g
 }
 
 
-
+//deleting the record 
 
 void delete_record()
 {
@@ -208,7 +215,6 @@ void delete_record()
     system("color 12");
     printf("\n\n\n\t\tEnter Roll No.:");
     scanf("%d",&r1);
-   // gotoxy(10,10);
    FILE *fp,*ft;
 
         fp=fopen("student.txt","rb+");
@@ -251,6 +257,7 @@ void delete_record()
         }
 
 
+//updating the record 
 
 void update_record()
 {
@@ -314,6 +321,10 @@ void update_record()
     fclose(fp);
 
 }
+
+
+//searching the record
+
 void search_record()
 {
     system("cls");
